@@ -13,37 +13,58 @@ To write a program to implement the back end of the compiler.
 # PROGRAM
 ## exp9.c
 ```
-#include <stdio.h> #include <ctype.h> #include <stdlib.h>
+#include<stdio.h>
+#include<ctype.h>
 
 int main() {
-int i = 2, j = 0, k = 2, k1 = 0; char ip[10], kk[10];
-FILE *fp;
+    int i = 2, j = 0, k = 2, k1 = 0;
+    char ip[10], kk[10];
+    FILE *fp;
 
-printf("Enter the filename of the intermediate code: "); scanf("%s", kk);
+    printf("\nEnter the filename of the intermediate code: ");
+    scanf("%s", kk);
 
-fp = fopen(kk, "r"); if (fp == NULL) {
-printf("\nError in opening the file\n"); return 1;
+    fp = fopen(kk, "r");
+    if(fp == NULL) {
+        printf("\nError in opening the file\n");
+        return 1; 
+    }
+
+    printf("\n");
+    while(fscanf(fp, "%s", ip) != EOF) {
+        printf("\t\t%s\n", ip);
+    }
+    rewind(fp);
+
+    printf("\n \n");
+    printf("\tStatement\t\tTarget Code\n");
+    printf("\n \n");
+
+    while(fscanf(fp, "%s", ip) != EOF) {
+        printf("\t%s", ip);
+        printf("\t\tMOV %c,R%d\n\t", ip[i + k], j);
+
+        if(ip[i + 1] == '+') {
+            printf("\t\tADD");
+        } else {
+            printf("\t\tSUB");
+        }
+
+        if(islower(ip[i])) {
+            printf("%c,R%d\n\n", ip[i + k1], j);
+        } else {
+            printf("%c,%c\n", ip[i], ip[i + 2]);
+        }
+        j++;
+        k1 = 2;
+        k = 0;
+    }
+
+    printf("\n \n");
+    fclose(fp);
+    return 0; 
 }
-printf("\nStatement\tTarget Code\n\n"); while (fscanf(fp, "%s", ip) != EOF) {
-printf("%s\tMOV %c,R%d SUB ", ip, ip[i + k], j);
 
-if (ip[i + 1] == '+')
-printf("ADD "); else
-printf("SUB ");
-
-if (islower(ip[i])) printf("%c,R%d\n", ip[i + k1], j);
-else
-printf("%c,%c\n", ip[i], ip[i + 2]);
-
-j++;
-k1 = 2;
-k = 0;
-}
-
-fclose(fp);
- 
-return 0;
-}
 ```
 ## k.txt
 ```
