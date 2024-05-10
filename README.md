@@ -1,5 +1,5 @@
-# Ex-9-IMPLEMENTATION-OF-THE-BACK-END-OF-THE-COMPILER-
-IMPLEMENTATION OF THE BACK END OF THE COMPILER 
+# Ex-9-IMPLEMENTATION OF THE BACK END OF THE COMPILER.
+
 # Date :
 # Aim :
 To write a program to implement the back end of the compiler.
@@ -50,8 +50,7 @@ return 0;
 X=a-b Y=a-c Z=a+b C=a-b C=a-b
 ```
 # OUTPUT
-![image](https://github.com/Maheswarikarthi/Ex-9-IMPLEMENTATION-OF-THE-BACK-END-OF-THE-COMPILER-/assets/127172770/072b5121-c26a-483e-b2fc-1c9678858dbe)
-
+![image](https://github.com/Maheswarikarthi/Ex-9-IMPLEMENTATION-OF-THE-BACK-END-OF-THE-COMPILER-/assets/127172770/ddb02081-a849-41fe-965e-edd3f1afeb21)
 # Result
 The back end of the compiler is implemented successfully, and the output is verified.
 
